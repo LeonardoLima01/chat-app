@@ -1,7 +1,14 @@
 import messageIcon from "./../images/msgIcon.png";
 import { MdModeNight, MdLightMode } from "react-icons/md";
+import Popup from "./Popup";
 
 export default function Header({ profileImage, darkMode, setDarkMode }) {
+  const togglePopup = () => {
+    let popup = document.querySelector(".popup-container");
+
+    popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+  };
+
   return (
     <header className={darkMode ? "light-black" : "white"}>
       <img src={messageIcon} alt="message icon" className="header-logo" />
@@ -13,7 +20,13 @@ export default function Header({ profileImage, darkMode, setDarkMode }) {
           <MdModeNight size={26} />
         )}
       </div>
-      <img src={profileImage} alt="user's profile" className="profile-image" />
+      <img
+        onClick={togglePopup}
+        src={profileImage}
+        alt="user's profile"
+        className="profile-image"
+      />
+      <Popup darkMode={darkMode} />
     </header>
   );
 }

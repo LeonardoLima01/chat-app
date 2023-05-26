@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signOut } from "firebase/auth";
 import {
   getFirestore,
   collection,
@@ -35,4 +35,8 @@ export const addMessage = async (username, text, userImageUrl) => {
     text,
     userImageUrl,
   });
+};
+
+export const signOutUser = async () => {
+  await signOut(auth);
 };
