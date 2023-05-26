@@ -7,13 +7,13 @@ export default function Chat({ profileImage, handleAddMessage }) {
 
   return (
     <div className="chat-page-container">
-      <div className="chat">
+      <div className={darkMode ? "chat black" : "chat light-gray"}>
         <Header
           profileImage={profileImage}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
-        <MessagesBox handleAddMessage={handleAddMessage} />
+        <MessagesBox darkMode={darkMode} handleAddMessage={handleAddMessage} />
       </div>
     </div>
   );

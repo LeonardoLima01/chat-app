@@ -3,9 +3,9 @@ import { MdModeNight, MdLightMode } from "react-icons/md";
 
 export default function Header({ profileImage, darkMode, setDarkMode }) {
   return (
-    <header>
+    <header className={darkMode ? "light-black" : "white"}>
       <img src={messageIcon} alt="message icon" className="header-logo" />
-      <h1> Chatter </h1>
+      <h1 className={darkMode ? "white-color" : "black-color"}> Chatter </h1>
       <div className="page-theme-button" onClick={() => setDarkMode(!darkMode)}>
         {darkMode ? (
           <MdLightMode color="#fff" size={26} />

@@ -4,7 +4,7 @@ import { MdSend } from "react-icons/md";
 import { db } from "../firebase";
 import Card from "./Card";
 
-export default function MessagesBox({ handleAddMessage }) {
+export default function MessagesBox({ handleAddMessage, darkMode }) {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,11 @@ export default function MessagesBox({ handleAddMessage }) {
   }, []);
 
   return (
-    <div className="messages-container">
+    <div
+      className={
+        darkMode ? "messages-container light-black" : "messages-container white"
+      }
+    >
       <div className="messages-display">
         {messages &&
           messages.map((message) => (
@@ -34,14 +38,23 @@ export default function MessagesBox({ handleAddMessage }) {
               text={message.text}
               username={message.username}
               userImage={message.userImageUrl}
+              darkMode={darkMode}
             />
           ))}
       </div>
       <div className="input-container">
         <form onSubmit={(e) => handleAddMessage(e)}>
-          <input id="message" placeholder="your messages here" />
+          <input
+            id="message"
+            className={darkMode ? "white-color gray" : "gray-color light-gray"}
+            placeholder="Aa"
+          />
           <button type="submit">
-            <MdSend className="send-message-icon" size={32} />
+            {darkMode ? (
+              <MdSend color="white" className="send-message-icon" size={32} />
+            ) : (
+              <MdSend className="send-message-icon" size={32} />
+            )}
           </button>
         </form>
       </div>

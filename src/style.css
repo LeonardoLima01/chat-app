@@ -73,7 +73,6 @@ header {
   align-items: center;
   padding: 0 30vw;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background-color: #fff;
 }
 
 header > h1 {
@@ -87,7 +86,6 @@ header > h1 {
 
 .chat {
   flex: 1;
-  background-color: #eee;
 }
 
 .profile-image {
@@ -112,7 +110,6 @@ header > h1 {
 
 .messages-container {
   margin: 2vw 30vw;
-  background-color: #fff;
   border-radius: 15px;
   height: 82vh;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -125,7 +122,8 @@ header > h1 {
   margin-top: auto;
   display: flex;
   border-top: 1px solid #eee;
-  padding-top: 5px;
+  padding-top: 15px;
+  margin-top: 2vh;
 }
 
 .input-container form {
@@ -135,9 +133,16 @@ header > h1 {
 }
 
 .input-container input {
-  width: 100%;
+  width: 93%;
   border: 0;
   outline: none;
+  height: 2vw;
+  border-radius: 20px;
+  padding: 0 10px;
+}
+
+.input-container input::placeholder {
+  color: rgb(158, 158, 158);
 }
 
 .send-message-icon {
@@ -148,7 +153,7 @@ header > h1 {
 }
 
 .send-message-icon:hover {
-  background-color: #ddd;
+  background-color: #aaa;
 }
 
 form button {
@@ -166,24 +171,20 @@ form button {
   display: flex;
   flex-direction: column;
   gap: 2vh;
-  padding-bottom: 2vh;
+  padding-bottom: 5px;
 }
 
 .card p {
   margin: 0;
 }
 
-.card-username {
-  color: #999;
-}
-
 .card-text {
-  background-color: #eee;
   width: fit-content;
   padding: 5px 10px;
   border-radius: 20px;
   max-width: 80%;
   word-wrap: break-word;
+  font-size: 0.8vw;
 }
 
 .card {
@@ -199,4 +200,53 @@ form button {
 
 .card-info {
   width: 80%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #bbb;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.white {
+  background-color: #fff;
+}
+
+.light-gray {
+  background-color: #eee;
+}
+
+.light-black {
+  background-color: rgb(46, 46, 46);
+}
+
+.gray {
+  background-color: #575757;
+}
+
+.black {
+  background-color: #111;
+}
+
+.black-color {
+  color: #000;
+}
+
+.white-color {
+  color: #fff;
+}
+
+.gray-color {
+  color: #646464;
 }
