@@ -25,13 +25,14 @@ const app = initializeApp(firebaseConfig);
 export const provider = new GoogleAuthProvider();
 
 export const auth = getAuth(app);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
-export const addMessage = async (username, text) => {
+export const addMessage = async (username, text, userImageUrl) => {
   let messagesRef = collection(db, "messages");
   await addDoc(messagesRef, {
     username,
     time: serverTimestamp(),
     text,
+    userImageUrl,
   });
 };

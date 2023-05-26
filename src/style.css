@@ -71,9 +71,13 @@ body {
 header {
   display: flex;
   align-items: center;
-  padding: 0 20vw;
+  padding: 0 30vw;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: #fff;
+}
+
+header > h1 {
+  margin: 1.25vh;
 }
 
 .header-logo {
@@ -107,10 +111,10 @@ header {
 }
 
 .messages-container {
-  margin: 2vw 20vw;
+  margin: 2vw 30vw;
   background-color: #fff;
   border-radius: 15px;
-  height: 82%;
+  height: 82vh;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding: 1vw 1.5vw;
   display: flex;
@@ -154,4 +158,45 @@ form button {
   margin-left: auto;
   display: flex;
   align-items: center;
+}
+
+.messages-display {
+  flex: 1;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  padding-bottom: 2vh;
+}
+
+.card p {
+  margin: 0;
+}
+
+.card-username {
+  color: #999;
+}
+
+.card-text {
+  background-color: #eee;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 20px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.card {
+  display: flex;
+  gap: 10px;
+}
+
+.card-profile-image {
+  border-radius: 50%;
+  width: 1.8vw;
+  height: 1.8vw;
+}
+
+.card-info {
+  width: 80%;
 }

@@ -27,7 +27,11 @@ function App() {
   const handleAddMessage = (e) => {
     e.preventDefault(); // Prevent form submit
     let text = document.querySelector("#message").value;
-    addMessage(username, text);
+
+    if (text.length > 0) {
+      addMessage(username, text, profileImage);
+      document.querySelector("#message").value = "";
+    }
   };
 
   // Event listener to change IsLogged state based on user auth state
