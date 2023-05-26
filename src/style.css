@@ -112,12 +112,9 @@ header {
   border-radius: 15px;
   height: 82%;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  padding: 2vw;
+  padding: 1vw 1.5vw;
   display: flex;
   flex-direction: column;
-}
-
-.messages-display {
 }
 
 .input-container {
@@ -134,13 +131,12 @@ header {
 }
 
 .input-container input {
-  width: 95%;
+  width: 100%;
   border: 0;
   outline: none;
 }
 
 .send-message-icon {
-  margin-left: auto;
   cursor: pointer;
   padding: 5px;
   border-radius: 50%;
@@ -154,4 +150,8 @@ header {
 form button {
   border: 0;
   background-color: transparent;
+  padding: 0;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }

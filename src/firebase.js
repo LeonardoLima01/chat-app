@@ -1,6 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,6 +22,16 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Get provider for google sign in
-export const provider = new GoogleAuthProvider(app);
+export const provider = new GoogleAuthProvider();
 
 export const auth = getAuth(app);
+const db = getFirestore(app);
+
+export const addMessage = async (username, text) => {
+  let messagesRef = collection(db, "messages");
+  await addDoc(messagesRef, {
+    username,
+    time: serverTimestamp(),
+    text,
+  });
+};

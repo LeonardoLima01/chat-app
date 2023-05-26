@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import LandingPage from "./components/LandingPage";
-import { auth, provider } from "./firebase";
+import { addMessage, auth, provider } from "./firebase";
 import {
   signInWithPopup,
   setPersistence,
@@ -12,6 +12,7 @@ import ChatPage from "./components/ChatPage";
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [profileImage, setProfileImage] = useState();
+  const [username, setUsername] = useState();
 
   const signIn = async () => {
     try {
@@ -23,6 +24,12 @@ function App() {
     }
   };
 
+  const handleAddMessage = (e) => {
+    e.preventDefault(); // Prevent form submit
+    let text = document.querySelector("#message").value;
+    addMessage(username, text);
+  };
+
   // Event listener to change IsLogged state based on user auth state
   useEffect(() => {
     setPersistence(auth, browserSessionPersistence) // Set long-term persistence
@@ -32,6 +39,7 @@ function App() {
           if (user) {
             setIsLogged(true);
             setProfileImage(user.photoURL);
+            setUsername(user.displayName);
           } else {
             setIsLogged(false);
           }
@@ -48,7 +56,10 @@ function App() {
       {!isLogged ? (
         <LandingPage handleClick={signIn} />
       ) : (
-        <ChatPage profileImage={profileImage} />
+        <ChatPage
+          profileImage={profileImage}
+          handleAddMessage={handleAddMessage}
+        />
       )}
     </div>
   );

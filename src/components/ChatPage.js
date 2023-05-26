@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "./Header";
 import MessagesBox from "./MessagesBox";
 
-export default function Chat({ profileImage }) {
+export default function Chat({ profileImage, handleAddMessage }) {
   let [darkMode, setDarkMode] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ export default function Chat({ profileImage }) {
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
-        <MessagesBox />
+        <MessagesBox handleAddMessage={handleAddMessage} />
       </div>
     </div>
   );
